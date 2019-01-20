@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Home from "./components/Home";
+import Nieuws from "./components/Nieuws";
+import Map from "./components/Map";
+
+
+import Footer from "./components/Footer";
 
 class App extends Component {
+  pages = [Home, Nieuws, Map];
+  constructor(){
+    super();
+    this.state = {currentPage: Home};
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e, newCurrentPage){
+    this.setState({currentPage:newCurrentPage});
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        {React.createElement(this.state.currentPage)}
+        <Footer pages={this.pages} handleClick={this.handleClick}/>
       </div>
     );
   }
