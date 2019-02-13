@@ -37,6 +37,5 @@ class Nieuws extends React.Component{
 
 
 }
-
-
+Nieuws.prototype.description = "This page fetches data from https://jsonplaceholder.typicode.com/posts."
 export default Nieuws;

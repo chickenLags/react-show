@@ -14,9 +14,12 @@ class Footer extends React.Component{
 
 
     render(){
-        const buttons = this.props.pages.map(page => React.createElement(Button, 
+        const buttons = this.props.pages.map(page => <Button page={page} handleClick={this.props.handleClick}/> );
+            /*
+             React.createElement(Button, 
             {   key: page.name, 
                 page, handleClick: this.props.handleClick }));
+            */
         return(
             <div className="FooterDiv" style={this.style}>
                 {buttons}

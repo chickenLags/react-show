@@ -3,7 +3,12 @@ import React from "react";
 class Button extends React.Component{
     style = {
         color: "gray",
-        margin: "auto"
+        margin: "auto",
+        width: "-webkit-fill-available",
+        height: "-webkit-fill-available",
+        textAlign: "center",
+        border: "solid 1px grey",
+        
     }
 
     constructor(){
@@ -30,7 +35,7 @@ class Button extends React.Component{
     render(){
 
         return(
-            <div style={this.style} onClick={this.handleClick}> 
+            <div className="hoverable" style={this.style} onClick={this.handleClick}> 
                 <h2> {this.props.page.name} </h2>
             </div>
         )

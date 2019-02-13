@@ -4,8 +4,6 @@ import './App.css';
 import Home from "./components/Home";
 import Nieuws from "./components/Nieuws";
 import Map from "./components/Map";
-
-
 import Footer from "./components/Footer";
 
 class App extends Component {
@@ -13,8 +11,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {currentPage: Home};
-
     this.handleClick = this.handleClick.bind(this);
+    
   }
 
   handleClick(e, newCurrentPage){
@@ -22,8 +20,12 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div>
+        <div className="Topbar">
+          <p>{this.state.currentPage.prototype.description}</p>
+        </div>
         {React.createElement(this.state.currentPage)}
         <Footer pages={this.pages} handleClick={this.handleClick}/>
       </div>
